@@ -1,5 +1,6 @@
 module.exports = webpackHotMiddleware;
 
+var launchEditorMiddleware = require('react-error-overlay/middleware')();
 var helpers = require('./helpers');
 var pathMatch = helpers.pathMatch;
 
@@ -30,6 +31,8 @@ function webpackHotMiddleware(compiler, opts) {
       // the server
       publishStats("sync", latestStats, eventStream);
     }
+
+    launchEditorMiddleware(req, res, next);
   };
   middleware.publish = eventStream.publish;
   return middleware;
