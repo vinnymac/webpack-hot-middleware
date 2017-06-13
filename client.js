@@ -1,6 +1,8 @@
 /*eslint-env browser*/
 /*global __resourceQuery __webpack_public_path__*/
 
+require('react-error-overlay')
+
 var options = {
   path: "/__webpack_hmr",
   timeout: 20 * 1000,
